@@ -11,7 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Gymove - Fitness Bootstrap Admin Dashboard</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Favicon icon -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
 	<link rel="stylesheet" href="/Brim/dashboard_asset/vendor/chartist/css/chartist.min.css">
     <link href="/Brim/dashboard_asset/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
@@ -292,6 +294,44 @@
                         <ul aria-expanded="false">
                             <li><a href="/Brim/logo/logo.php">Add Logo</a></li>
                         </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-381-television"></i>
+							<span class="nav-text">Banners</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="/Brim/banner_content/banner.php">Add Banner</a></li>
+                            <li><a href="/Brim/banner_content/banner_image.php">Add Banner Image</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-381-television"></i>
+							<span class="nav-text">Social Icons</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="/Brim/social/social.php">Add Icon</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-381-television"></i>
+							<span class="nav-text">Education</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="/Brim/education/education.php">Add New Education</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-381-television"></i>
+							<span class="nav-text">Works</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="/Brim/works/work.php">Add Works</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="/Brim/message/message.php" aria-expanded="false">
+							<i class="flaticon-381-television"></i>
+							<span class="nav-text">Message</span>
+						</a>
                     </li>
                 </ul>
 		

@@ -1,3 +1,17 @@
+<?php 
+require 'db.php';
+$id = $_GET['id'];
+$select = "SELECT * FROM works WHERE id=$id";
+$works = mysqli_query($db_connection, $select);
+$after_assoc = mysqli_fetch_assoc($works);
+
+$user_id = $after_assoc['user_id'];
+
+$user_info = "SELECT * FROM users WHERE id=$user_id";
+$user_res = mysqli_query($db_connection, $user_info);
+$after_assoc_user = mysqli_fetch_assoc($user_res);
+
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -135,51 +149,19 @@
                         <div class="col-xl-9 col-lg-10">
                             <div class="single-blog-list">
                                 <div class="blog-list-thumb mb-35">
-                                    <img src="img/images/portfolio_details.jpg" alt="img">
+                                    <img height="500" src="uploads/works/<?=$after_assoc['image']?>" alt="img">
                                 </div>
                                 <div class="blog-list-content blog-details-content portfolio-details-content">
-                                    <h2>Consectetur neque elit quis nunc cras elementum</h2>
-                                    <p>Express dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimem
-                                        egestliberos dolor auctor
-                                        tellus, eu consectetur neque elit quis nunc. Cras elementum pretiumi Nullam justo efficitur,
-                                        trist ligula pellentesque
-                                        ipsum. Quisque thsr augue ipsum, vehicula tellus maximus. Was popularised in the 1960s withs
-                                        the release of Letraset
-                                        sheets containing Lorem Ipsum passags, and more recently with desktop publishing software
-                                        like Aldus PageMaker including
-                                        versions.</p>
-                                    <p>Rxpress dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimem
-                                        egestlibers dolosr auctor
-                                        tellus, eu consectetur neque elit quis nunc. Cras elementum pretiumi Nullam justo efficitur,
-                                        trist ligula pellentesque
-                                        ipsum. Quisque thsr augue ipsum, vehicula tellus maximus.</p>
-                                    <p>Vehicula dolor amet consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimem egestliberos dolor auctor
-                                    tellus, eu consectetur neque elit quis nunc. Cras elementum pretiumi Nullam justo efficitur, trist ligula pellentesque
-                                    ipsum. Quisque thsr augue ipsum, vehicula tellus maximus.Express dolor sit amet, consectetur adipiscing elit. Cras
-                                    sollicitudin, tellus vitae condimem egestliberos dolor auctor tellus, eu consectetur neque elit quis nunc.</p>
-
-                                    <p>Express dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimem
-                                        egestliberos dolor auctor
-                                        tellus, eu consectetur neque elit quis nunc. Cras elementum pretiumi Nullam justo efficitur,
-                                        trist ligula pellentesque
-                                        ipsum. Quisque thsr augue ipsum, vehicula tellus maximus. Was popularised in the 1960s withs
-                                        the release of Letraset
-                                        sheets containing Lorem Ipsum passags, and more recently with desktop publishing software
-                                        like Aldus PageMaker including
-                                        versions.</p>
-                                    <p>Vehicula dolor amet consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimem
-                                        egestliberos dolor auctor
-                                        tellus, eu consectetur neque elit quis nunc. Cras elementum pretiumi Nullam justo efficitur,
-                                        trist ligula pellentesque
-                                        ipsum. Quisque thsr augue ipsum, vehicula tellus maximus.</p>
+                                    <h2><?=$after_assoc['title']?></h2>
+                                    <p><?=$after_assoc['desp']?></p>
                                     <div class="blog-list-meta">
                                         <ul>
                                             <li class="blog-post-date">
                                                 <h3>Share On</h3>
                                             </li>
                                             <li class="blog-post-share">
-                                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                                <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1/Brim/work_details.php?id=<?=$after_assoc['id']?>"><i class="fab fa-facebook-f"></i></a>
+                                                <a href="http://www.twitter.com/share?url=http://127.0.0.1/Brim/work_details.php?id=<?=$after_assoc['id']?>"><i class="fab fa-twitter"></i></a>
                                                 <a href="#"><i class="fab fa-pinterest-p"></i></a>
                                             </li>
                                         </ul>
@@ -189,10 +171,10 @@
                                     <ul>
                                         <li>
                                             <div class="post-avatar-img">
-                                                <img src="img/blog/post_avatar_img.png" alt="img">
+                                                <img width="50" height="50" src="uploads/user/<?=$after_assoc_user['image']?>" alt="img">
                                             </div>
                                             <div class="post-avatar-content">
-                                                <h5>Thomas Herlihy</h5>
+                                                <h5><?=$after_assoc_user['name']?></h5>
                                                 <p>Vehicula dolor amet consectetur adipiscing elit. Cras sollicitudin, tellus vitae
                                                     condimem
                                                     egestliberos dolor auctor

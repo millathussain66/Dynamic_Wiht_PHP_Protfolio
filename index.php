@@ -1,9 +1,37 @@
 <?php 
+session_start();
 require 'db.php';
 
-$select = "SELECT * FROM logos";
+//logo
+$select = "SELECT * FROM logos WHERE status=1";
 $select_logo = mysqli_query($db_connection, $select);
 $after_assoc_logo = mysqli_fetch_assoc($select_logo);
+
+//banners
+$select = "SELECT * FROM banner_contents WHERE status=1";
+$select_banner = mysqli_query($db_connection, $select);
+$after_assoc_banner = mysqli_fetch_assoc($select_banner);
+
+//banners image
+$select = "SELECT * FROM banner_images WHERE status=1";
+$select_banner_img = mysqli_query($db_connection, $select);
+$after_assoc_banner_img = mysqli_fetch_assoc($select_banner_img);
+
+//Social
+$select = "SELECT * FROM socials WHERE status=1";
+$select_icon = mysqli_query($db_connection, $select);
+
+//Education
+$select = "SELECT * FROM educations WHERE status=1";
+$select_edu = mysqli_query($db_connection, $select);
+
+//Education
+$select = "SELECT * FROM works";
+$select_work = mysqli_query($db_connection, $select);
+
+
+
+
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -17,6 +45,7 @@ $after_assoc_logo = mysqli_fetch_assoc($select_logo);
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Place favicon.ico in the root directory -->
 
 		<!-- CSS here -->
@@ -111,10 +140,9 @@ $after_assoc_logo = mysqli_fetch_assoc($select_logo);
                     </div>
                 </div>
                 <div class="social-icon-right mt-20">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <?php foreach($select_icon as $icon){ ?>
+                        <a target="_blank" href="<?=$icon['link']?>"><i style="font-family:fontawesome;" class="fa <?=$icon['icon']?>"></i></a>
+                    <?php } ?>
                 </div>
             </div>
             <div class="offcanvas-overly"></div>
@@ -131,15 +159,14 @@ $after_assoc_logo = mysqli_fetch_assoc($select_logo);
                     <div class="row align-items-center">
                         <div class="col-xl-7 col-lg-6">
                             <div class="banner-content">
-                                <h6 class="wow fadeInUp" data-wow-delay="0.2s">HELLO!</h6>
-                                <h2 class="wow fadeInUp" data-wow-delay="0.4s">I am Will Smith</h2>
-                                <p class="wow fadeInUp" data-wow-delay="0.6s">I'm Will Smith, professional web developer with long time experience in this field​.</p>
+                                <h6 class="wow fadeInUp" data-wow-delay="0.2s"><?=$after_assoc_banner['sub_title']?></h6>
+                                <h2 class="wow fadeInUp" data-wow-delay="0.4s"><?=$after_assoc_banner['title']?></h2>
+                                <p class="wow fadeInUp" data-wow-delay="0.6s"><?=$after_assoc_banner['desp']?></p>
                                 <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                     <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                        <?php foreach($select_icon as $icon){ ?>
+                                            <li><a target="_blank" href="<?=$icon['link']?>"><i style="font-family:fontawesome;" class="fa <?=$icon['icon']?>"></i></a></li>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                                 <a href="#" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
@@ -147,7 +174,7 @@ $after_assoc_logo = mysqli_fetch_assoc($select_logo);
                         </div>
                         <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                             <div class="banner-img text-right">
-                                <img src="img/banner/banner_img.png" alt="">
+                                <img width="600" height="850" src="uploads/banner/<?=$after_assoc_banner_img['banner_image']?>" alt="">
                             </div>
                         </div>
                     </div>
@@ -176,64 +203,23 @@ $after_assoc_logo = mysqli_fetch_assoc($select_logo);
                                     blanditiis culpa vitae velit. Numquam!</p>
                                 <h3>Education:</h3>
                             </div>
+                            <?php foreach($select_edu as $edu){ ?>
                             <!-- Education Item -->
                             <div class="education">
-                                <div class="year">2020</div>
+                                <div class="year"><?=$edu['year']?></div>
                                 <div class="line"></div>
                                 <div class="location">
-                                    <span>PHD of Interaction Design &amp; Animation</span>
+                                    <span><?=$edu['title']?></span>
                                     <div class="progressWrapper">
                                         <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: <?=$edu['percentage']?>%;" aria-valuenow="<?=$edu['percentage']?>" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- End Education Item -->
-                            <!-- Education Item -->
-                            <div class="education">
-                                <div class="year">2016</div>
-                                <div class="line"></div>
-                                <div class="location">
-                                    <span>Master of Database Administration</span>
-                                    <div class="progressWrapper">
-                                        <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Education Item -->
-                            <!-- Education Item -->
-                            <div class="education">
-                                <div class="year">2010</div>
-                                <div class="line"></div>
-                                <div class="location">
-                                    <span>Bachelor of Computer Engineering</span>
-                                    <div class="progressWrapper">
-                                        <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Education Item -->
-                            <!-- Education Item -->
-                            <div class="education">
-                                <div class="year">2005</div>
-                                <div class="line"></div>
-                                <div class="location">
-                                    <span>Diploma of Computer</span>
-                                    <div class="progressWrapper">
-                                        <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Education Item -->
+                            <?php } ?>
+           
                         </div>
                     </div>
                 </div>
@@ -323,78 +309,20 @@ $after_assoc_logo = mysqli_fetch_assoc($select_logo);
                         </div>
                     </div>
                     <div class="row">
+                        <?php foreach($select_work as $work){ ?>
                         <div class="col-lg-4 col-md-6 pitem">
                             <div class="speaker-box">
 								<div class="speaker-thumb">
-									<img src="img/images/1.jpg" alt="img">
+									<img src="uploads/works/<?=$work['image']?>" alt="img">
 								</div>
 								<div class="speaker-overlay">
-									<span>Design</span>
-									<h4><a href="portfolio-single.html">Hamble Triangle</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
+									<span><?=$work['category']?></span>
+									<h4><a href="portfolio-single.html"><?=$work['sub_title']?></a></h4>
+									<a href="work_details.php?id=<?=$work['id']?>" class="arrow-btn">More information <span></span></a>
 								</div>
 							</div>
                         </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="img/images/2.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>Video</span>
-									<h4><a href="portfolio-single.html">Dark Beauty</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="img/images/3.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>Audio</span>
-									<h4><a href="portfolio-single.html">Gilroy Limbo.</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
-						<div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="img/images/4.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>Design</span>
-									<h4><a href="portfolio-single.html">Ipsum which</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="img/images/5.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>Creative</span>
-									<h4><a href="portfolio-single.html">Eiusmod tempor</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="img/images/6.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>UX/UI</span>
-									<h4><a href="portfolio-single.html">again there</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </section>
@@ -562,12 +490,20 @@ $after_assoc_logo = mysqli_fetch_assoc($select_logo);
                             </div>
                         </div>
                         <div class="col-lg-6">
+                            <?php if(isset($_SESSION['send'])){?>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong><?=$_SESSION['send']?></strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                            <?php } unset($_SESSION['send'])?>
                             <div class="contact-form">
-                                <form action="#">
-                                    <input type="text" placeholder="your name *">
-                                    <input type="email" placeholder="your email *">
+                                <form action="message_post.php" method="POST">
+                                    <input type="text" name="name" placeholder="your name *">
+                                    <input type="email" name="email" placeholder="your email *">
                                     <textarea name="message" id="message" placeholder="your message *"></textarea>
-                                    <button class="btn">BUY TICKET</button>
+                                    <button type="submit" class="btn">Send</button>
                                 </form>
                             </div>
                         </div>
