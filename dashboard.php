@@ -14,7 +14,7 @@ require 'admin/dashboard_parts/header.php';
                     <h3>Dashboard</h3>
                 </div>
                 <div class="card-body">
-                    <p>Welcome To Admin Panel</p>
+                    <p>Welcome To Admin Panel  -> <span class="text-black"><strong><?=$after_assoc_user['name']?></strong></span></p>
                 </div>
             </div>
         </div>
