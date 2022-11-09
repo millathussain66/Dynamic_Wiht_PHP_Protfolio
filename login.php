@@ -31,11 +31,11 @@ session_start();
                                     <form action="login_post.php" method="POST">
                                         <div class="form-group">
                                             <label class="mb-1 text-white"><strong>Email</strong></label>
-                                            <input type="email" name="email" class="form-control" value="hello@example.com">
+                                            <input type="email" name="email" class="form-control" placeholder="Enter Your Email">
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1 text-white"><strong>Password</strong></label>
-                                            <input type="password" name="password" class="form-control" value="Password">
+                                            <input type="password" name="password" class="form-control" placeholder="Enter Your Password">
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn bg-white text-primary btn-block">Login</button>

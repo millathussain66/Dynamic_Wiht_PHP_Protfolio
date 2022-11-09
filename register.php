@@ -58,7 +58,7 @@ session_start();
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1 text-white"><strong>Email</strong></label>
-                                            <input type="email" name="email" class="form-control" placeholder="hello@example.com" value="<?=(isset($_SESSION['eml_val']))?$_SESSION['eml_val']:''?>">
+                                            <input type="email" name="email" class="form-control" value="<?=(isset($_SESSION['eml_val']))?$_SESSION['eml_val']:''?>">
                                             <?php if(isset($_SESSION['eml_err'])){ ?>
                                                 <strong class="text-danger"><?= $_SESSION['eml_err'] ?></strong>
                                             <?php } ?>

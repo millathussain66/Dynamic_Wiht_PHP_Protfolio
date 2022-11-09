@@ -3,7 +3,7 @@ session_start();
  
 require '../session_check.php';
 require '../db.php';
-require '../dashboard_parts/header.php';
+require '../admin/dashboard_parts/header.php';
 
 	$id = $_SESSION['id'];
 	$user = "SELECT * FROM users WHERE id=$id";
@@ -67,5 +67,5 @@ require '../dashboard_parts/header.php';
 </div>
 
 <?php 
-require '../dashboard_parts/footer.php';
+require '../admin/dashboard_parts/footer.php';
 ?>

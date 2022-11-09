@@ -6,7 +6,7 @@ $select_users = "SELECT * FROM users";
 $users_all = mysqli_query($db_connection, $select_users);
 ?>
 <?php 
-require '../dashboard_parts/header.php';
+require '../admin/dashboard_parts/header.php';
 ?>
 	
 
@@ -32,7 +32,7 @@ require '../dashboard_parts/header.php';
                             <td><?=$key+1?></td>
                             <td><?=$user['name']?></td>
                             <td><?=$user['email']?></td>
-                            <td><img width="50" src="/Brim/uploads/user/<?=$user['image']?>" alt=""></td>
+                            <td><img width="50" src="../uploads/user/<?=$user['image']?>" alt=""></td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn btn-success light sharp" data-toggle="dropdown">
@@ -53,7 +53,7 @@ require '../dashboard_parts/header.php';
 </div>
 
 <?php 
-require '../dashboard_parts/footer.php';
+require '../admin/dashboard_parts/footer.php';
 ?>
 	
 

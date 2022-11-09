@@ -12,7 +12,7 @@ $after_assoc = mysqli_fetch_assoc($message);
 
 ?>
 <?php
-    require '../dashboard_parts/header.php';
+    require '../admin/dashboard_parts/header.php';
 ?>
 <div class="row">
     <div class="col-lg-8 m-auto">
@@ -41,5 +41,5 @@ $after_assoc = mysqli_fetch_assoc($message);
     </div>
 </div>
 <?php
-    require '../dashboard_parts/footer.php';
+    require '../admin/dashboard_parts/footer.php';
 ?>
