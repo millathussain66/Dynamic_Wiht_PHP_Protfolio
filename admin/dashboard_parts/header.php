@@ -1,4 +1,6 @@
 <?php
+
+
 	$id = $_SESSION['id'];
 	$user = "SELECT * FROM users WHERE id=$id";
 	$user_result = mysqli_query($db_connection, $user);
@@ -21,15 +23,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>portfolio_with_row_php Admin Site</title>
+    <title>Millat || Admin</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Favicon icon -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
-	<link rel="stylesheet" href="/Brim/dashboard_asset/vendor/chartist/css/chartist.min.css">
-    <link href="/Brim/dashboard_asset/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-	<link href="/Brim/dashboard_asset/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="/Brim/dashboard_asset/css/style.css" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="/portfolio_with_row_php/admin/dashboard_asset/vendor/chartist/css/chartist.min.css">
+
+    <link href="/portfolio_with_row_php/admin/dashboard_asset/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+
+	<link href="/portfolio_with_row_php/admin/dashboard_asset/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
+
+    <link href="/portfolio_with_row_php/admin/dashboard_asset/css/style.css" rel="stylesheet">
+
+
+
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -120,7 +130,9 @@
                                         <span class="ml-2">Profile </span>
                                     </a>
                             
-                        <a href="/portfolio_with_row_php/logout.php" class="dropdown-item ai-icon">
+                        <a href="/portfolio_with_row_php/admin/logout.php" class="dropdown-item ai-icon">
+
+
                             <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                             <span class="ml-2">Logout</span>
                         </a>

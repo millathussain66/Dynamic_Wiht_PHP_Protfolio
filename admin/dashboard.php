@@ -1,9 +1,9 @@
 <?php
 session_start();
  
-require 'session_check.php';
-require 'db.php';
-require 'admin/dashboard_parts/header.php';
+require '../session_check.php';
+require '../db.php';
+require 'dashboard_parts/header.php';
 ?>
 		
 <div class="container">
@@ -22,5 +22,5 @@ require 'admin/dashboard_parts/header.php';
 </div>
 
 <?php 
-require 'admin/dashboard_parts/footer.php';
+require 'dashboard_parts/footer.php';
 ?>

@@ -1,6 +1,7 @@
 <?php 
 session_start();
-require 'db.php';
+require '../db.php';
+
 
 $email = $_POST['email'];
 $password = $_POST['password'];

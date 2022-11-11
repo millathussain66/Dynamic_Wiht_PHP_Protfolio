@@ -11,7 +11,7 @@ session_start();
     <title>Gymove - Fitness Bootstrap Admin Dashboard</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
-    <link href="/Brim/dashboard_asset/css/style.css" rel="stylesheet">
+    <link href="dashboard_asset/css/style.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 
@@ -58,10 +58,10 @@ session_start();
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="/Brim/dashboard_asset/vendor/global/global.min.js"></script>
-	<script src="/Brim/dashboard_asset/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="/Brim/dashboard_asset/js/custom.min.js"></script>
-    <script src="/Brim/dashboard_asset/js/deznav-init.js"></script>
+    <script src="dashboard_asset/vendor/global/global.min.js"></script>
+	<script src="dashboard_asset/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="dashboard_asset/js/custom.min.js"></script>
+    <script src="dashboard_asset/js/deznav-init.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <?php if(isset($_SESSION['invalid_email'])){ ?>
