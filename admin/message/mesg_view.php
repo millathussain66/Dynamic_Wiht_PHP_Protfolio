@@ -1,6 +1,9 @@
 <?php 
 session_start();
-require '../db.php';
+
+require '../../db.php';
+
+
 $id = $_GET['id'];
 
 $update = "UPDATE messages SET status=1 WHERE id=$id";
@@ -12,7 +15,7 @@ $after_assoc = mysqli_fetch_assoc($message);
 
 ?>
 <?php
-    require '../admin/dashboard_parts/header.php';
+    require '../dashboard_parts/header.php';
 ?>
 <div class="row">
     <div class="col-lg-8 m-auto">
@@ -41,5 +44,5 @@ $after_assoc = mysqli_fetch_assoc($message);
     </div>
 </div>
 <?php
-    require '../admin/dashboard_parts/footer.php';
+    require '../dashboard_parts/footer.php';
 ?>

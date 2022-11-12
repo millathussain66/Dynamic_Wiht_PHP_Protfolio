@@ -1,10 +1,12 @@
 <?php 
 session_start();
-require '../db.php';
+require '../../db.php';
+
+
 $select = "SELECT * FROM messages";
 $message = mysqli_query($db_connection, $select);
 ?>
-<?php require '../admin/dashboard_parts/header.php'; ?>
+<?php require '../dashboard_parts/header.php'; ?>
 
 <div class="container">
     <div class="row">
@@ -41,4 +43,4 @@ $message = mysqli_query($db_connection, $select);
     </div>
 </div>
 
-<?php require '../admin/dashboard_parts/footer.php'; ?>
+<?php require '../dashboard_parts/footer.php'; ?>

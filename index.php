@@ -44,10 +44,34 @@ $after_assoc_about = mysqli_fetch_assoc($select_about_content);
 // About Images 
 
 $select_about = "SELECT * FROM about_image WHERE status=1";
-
 $select_about_image = mysqli_query($db_connection, $select_about);
-
 $after_assoc_about_image = mysqli_fetch_assoc($select_about_image);
+
+// About Images 
+
+$select_contact = "SELECT * FROM contact WHERE status=1";
+$select_contact_con = mysqli_query($db_connection, $select_contact);
+$select_contact_select_all = mysqli_fetch_assoc($select_contact_con);
+
+
+
+// Slider Section
+$slider = "SELECT logo_image FROM customer_slider  WHERE status=1 LIMIT 8";
+$slider_select = mysqli_query($db_connection, $slider);
+// Slider Section
+
+// testimonial Section
+$testimonial = "SELECT * FROM testimonial  WHERE status=1 LIMIT 3";
+$testimonial_select = mysqli_query($db_connection, $testimonial);
+// testimonial Section
+
+
+
+// Copyright Text 
+
+$select_copy = "SELECT * FROM copy_right  LIMIT 1";
+$select_copy_text = mysqli_query($db_connection, $select_copy);
+$after_assoc_copy_text = mysqli_fetch_assoc($select_copy_text);
 
 
 
@@ -389,30 +413,24 @@ $after_assoc_about_image = mysqli_fetch_assoc($select_about_image);
                     <div class="row justify-content-center">
                         <div class="col-xl-9 col-lg-10">
                             <div class="testimonial-active">
+
+                            <?php foreach($testimonial_select as $item){ ?>
+
                                 <div class="single-testimonial text-center">
                                     <div class="testi-avatar">
                                         <img src="img/images/testi_avatar.png" alt="img">
                                     </div>
                                     <div class="testi-content">
-                                        <h4><span>“</span> An event is a message sent by an object to signal the occur rence of an action. The action can causd user interaction such as a button click, or it can result <span>”</span></h4>
+                                        <h4><span>“</span> <?= $item['quotes'] ?> <span>”</span></h4>
                                         <div class="testi-avatar-info">
-                                            <h5>tonoy jakson</h5>
-                                            <span>head of idea</span>
+                                            <h5><?= $item['name'] ?></h5>
+                                            <span><?= $item['introduction'] ?></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="single-testimonial text-center">
-                                    <div class="testi-avatar">
-                                        <img src="img/images/testi_avatar.png" alt="img">
-                                    </div>
-                                    <div class="testi-content">
-                                        <h4><span>“</span> An event is a message sent by an object to signal the occur rence of an action. The action can causd user interaction such as a button click, or it can result <span>”</span></h4>
-                                        <div class="testi-avatar-info">
-                                            <h5>tonoy jakson</h5>
-                                            <span>head of idea</span>
-                                        </div>
-                                    </div>
-                                </div>
+
+                                <?php } ?>
+                        
                             </div>
                         </div>
                     </div>
@@ -424,36 +442,17 @@ $after_assoc_about_image = mysqli_fetch_assoc($select_about_image);
             <div class="barnd-area pt-100 pb-100">
                 <div class="container">
                     <div class="row brand-active">
+                    <?php foreach($slider_select as $slider){ ?>
+
                         <div class="col-xl-2">
                             <div class="single-brand">
-                                <img src="img/brand/brand_img01.png" alt="img">
+
+                                <img src="./uploads/customer_slider/<?= $slider['logo_image']  ?>" alt="img">
+                           
+                        
                             </div>
                         </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="img/brand/brand_img02.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="img/brand/brand_img03.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="img/brand/brand_img04.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="img/brand/brand_img05.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="img/brand/brand_img03.png" alt="img">
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -469,13 +468,21 @@ $after_assoc_about_image = mysqli_fetch_assoc($select_about_image);
                                 <h2>Contact Information</h2>
                             </div>
                             <div class="contact-content">
-                                <p>Event definition is - somthing that happens occurre How evesnt sentence. Synonym when an unknown printer took a galley.</p>
-                                <h5>OFFICE IN <span>NEW YORK</span></h5>
+
+
+                            
+
+                                <p><?= $select_contact_select_all['contact_desp']?></p>
+
+
+
+                                <h5>OFFICE IN <span> <?= $select_contact_select_all['contact_city']?></span></h5>
                                 <div class="contact-list">
                                     <ul>
-                                        <li><i class="fas fa-map-marker"></i><span>Address :</span>Event Center park WT 22 New York</li>
-                                        <li><i class="fas fa-headphones"></i><span>Phone :</span>+9 125 645 8654</li>
-                                        <li><i class="fas fa-globe-asia"></i><span>e-mail :</span>info@exemple.com</li>
+                                        <li><i class="fas fa-map-marker"></i><span>Address :</span> <?= $select_contact_select_all['contact_address']?></li>
+                                        <li><i class="fas fa-headphones"></i><span>Phone :</span><?= $select_contact_select_all['phone']?></li>
+                                        <li>
+                                            <i class="fas fa-globe-asia"></i><span>e-mail :</span><p><?= $select_contact_select_all['e_mail']?></p></li>
                                     </ul>
                                 </div>
                             </div>
@@ -513,7 +520,12 @@ $after_assoc_about_image = mysqli_fetch_assoc($select_about_image);
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="copyright-text text-center">
-                                <p>Copyright© <span>Kufa</span> | All Rights Reserved</p>
+
+                            
+
+                                <p> <?= $after_assoc_copy_text['copy_right_text'] ?> </p>
+
+
                             </div>
                         </div>
                     </div>
