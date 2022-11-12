@@ -38,14 +38,16 @@ $select_service = mysqli_query($db_connection, $select_serv);
 // About 
 
 $select_serv = "SELECT * FROM about WHERE status=1";
-$select_service = mysqli_query($db_connection, $select_serv);
-$after_assoc_about = mysqli_fetch_assoc($select_service);
+$select_about_content = mysqli_query($db_connection, $select_serv);
+$after_assoc_about = mysqli_fetch_assoc($select_about_content);
 
 // About Images 
 
-$select_serv = "SELECT * FROM about_image WHERE status=1";
-$select_service = mysqli_query($db_connection, $select_serv);
-$after_assoc_about_image = mysqli_fetch_assoc($select_service);
+$select_about = "SELECT * FROM about_image WHERE status=1";
+
+$select_about_image = mysqli_query($db_connection, $select_about);
+
+$after_assoc_about_image = mysqli_fetch_assoc($select_about_image);
 
 
 

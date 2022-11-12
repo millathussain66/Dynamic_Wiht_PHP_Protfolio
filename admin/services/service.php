@@ -36,9 +36,6 @@ $select_service = mysqli_query($db_connection, $select);
 
                                 <td><?php echo $service['service_title'] ?></td>
                                 <td><?php echo $service['service_dscp'] ?></td>
-
-
-
                                 <td>
 
                                     <div class="dropdown">
@@ -57,11 +54,6 @@ $select_service = mysqli_query($db_connection, $select);
                                         </div>
                                     </div>
                                 </td>
-
-
-
-
-
 
                             </tr>
 
