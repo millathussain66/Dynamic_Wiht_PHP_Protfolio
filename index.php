@@ -35,6 +35,19 @@ $select_serv = "SELECT * FROM service";
 $select_service = mysqli_query($db_connection, $select_serv);
 
 
+// About 
+
+$select_serv = "SELECT * FROM about WHERE status=1";
+$select_service = mysqli_query($db_connection, $select_serv);
+$after_assoc_about = mysqli_fetch_assoc($select_service);
+
+// About Images 
+
+$select_serv = "SELECT * FROM about_image WHERE status=1";
+$select_service = mysqli_query($db_connection, $select_serv);
+$after_assoc_about_image = mysqli_fetch_assoc($select_service);
+
+
 
 
 
@@ -46,11 +59,19 @@ $select_service = mysqli_query($db_connection, $select_serv);
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Kufa - Personal Portfolio HTML5 Template</title>
+        <title>Personal Portfolio || Millat</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+
+
+        
+    <link rel="icon" type="image/png" sizes="16x16" href="uploads/logo/<?=$after_assoc_logo['logo']?>">
+      
+
+
+
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Place favicon.ico in the root directory -->
 
@@ -180,7 +201,7 @@ $select_service = mysqli_query($db_connection, $select_serv);
                         </div>
                         <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                             <div class="banner-img text-right">
-                                <img width="600" height="850" src="uploads/banner/<?=$after_assoc_banner_img['banner_image']?>" alt="">
+                                <img width="600"  src="uploads/banner/<?=$after_assoc_banner_img['banner_image']?>" alt="">
                             </div>
                         </div>
                     </div>
@@ -195,7 +216,7 @@ $select_service = mysqli_query($db_connection, $select_serv);
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="about-img">
-                                <img src="img/banner/banner_img2.png" title="me-01" alt="me-01">
+                                <img src="uploads/about/<?= $after_assoc_about_image['image'] ?>" title="me-01" alt="me-01">
                             </div>
                         </div>
                         <div class="col-lg-6 pr-90">
@@ -204,10 +225,10 @@ $select_service = mysqli_query($db_connection, $select_serv);
                                 <h2>About Me</h2>
                             </div>
                             <div class="about-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, sed repudiandae odit deserunt, quas
-                                    quibusdam necessitatibus nesciunt eligendi esse sit non reprehenderit quisquam asperiores maxime
-                                    blanditiis culpa vitae velit. Numquam!</p>
-                                <h3>Education:</h3>
+
+                            <?php echo $after_assoc_about['about_you'] ?>
+                       
+                                <h3 class="mt-3">Education:</h3>
                             </div>
                             <?php foreach($select_edu as $edu){ ?>
                             <!-- Education Item -->

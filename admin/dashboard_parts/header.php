@@ -8,14 +8,9 @@
 
 	$select = "SELECT * FROM logos";
     $select_logos = mysqli_query($db_connection, $select);
-
 	$select_logo = mysqli_fetch_assoc($select_logos);
 
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,11 +18,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Millat || Admin</title>
+    <title>Personal Portfolio || Admin</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Favicon icon -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+
+
+    <link rel="icon" type="image/png" sizes="16x16" href="/portfolio_with_row_php/uploads/logo/<?=$select_logo['logo']?>">
 
 
 	<link rel="stylesheet" href="/portfolio_with_row_php/admin/dashboard_asset/vendor/chartist/css/chartist.min.css">
@@ -200,6 +197,16 @@
                     <li><a class="has-arrow ai-icon" href="/portfolio_with_row_php/admin/services/service.php" aria-expanded="false">
 							<span class="nav-text"> Services</span>
 						</a>
+                    </li>
+
+
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+							<span class="nav-text">Abouts</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="/portfolio_with_row_php/admin/about/about.php">Add About</a></li>
+                            <li><a href="/portfolio_with_row_php/admin/about/about_img.php">Add About Image</a></li>
+                        </ul>
                     </li>
                 </ul>
 		
