@@ -224,9 +224,7 @@
 						</a>
                         <ul aria-expanded="false">
                             <li><a href="/portfolio_with_row_php/admin/testimonial/testimonial.php"> TESTIMONIAL CONTENT </a></li>
-                            <li><a href="/portfolio_with_row_php/admin/testimonial/testimonial_img.php">
-                            TESTIMONIAL IMAGE
-                            </a></li>
+              
                         </ul>
                     </li>
 

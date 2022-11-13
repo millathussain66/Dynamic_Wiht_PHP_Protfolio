@@ -13,7 +13,7 @@ $select_contact = mysqli_query($db_connection, $select);
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3>Contact Informaiton</h3>
+                    <h3>TESTIMONIAL Informaiton</h3>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
@@ -21,8 +21,8 @@ $select_contact = mysqli_query($db_connection, $select);
                             <th>SL</th>
                             <th>Description</th>
                             <th>Name</th>
+                            <th>Images</th>
                             <th>Who</th>
-
                             <th>status</th>
                             <th>Action</th>
                         </tr>
@@ -33,6 +33,9 @@ $select_contact = mysqli_query($db_connection, $select);
                                 <td> <?= $key + 1 ?> </td>
                                 <td><?= $contact['quotes'] ?></td>
                                 <td><?= $contact['name'] ?></td>
+                                <td>
+                                    <img width="40" src="../../uploads/testimonial/<?= $contact['img'] ?>" alt="no image">
+                                </td>
                                 <td><?= $contact['introduction'] ?></td>
 
                                 <td><a href="content_status.php?id=<?= $contact['id'] ?>"><span class="badge text-bg-<?= ($contact['status'] == 1 ? 'success' : 'secondary') ?>"><?= ($contact['status'] == 1 ? 'Active' : 'Deactive') ?></span></a></td>
@@ -67,10 +70,10 @@ $select_contact = mysqli_query($db_connection, $select);
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3>Contact Information Add</h3>
+                    <h3>TESTIMONIAL Information Add</h3>
                 </div>
                 <div class="card-body">
-                    <form action="testimonial_post.php" method="POST">
+                    <form action="testimonial_post.php" method="POST" enctype="multipart/form-data">
 
                         <!-- 
 
@@ -78,24 +81,29 @@ $select_contact = mysqli_query($db_connection, $select);
                      -->
 
                         <div class="mb-3">
-                            <textarea placeholder="HAPPY CUSTOMER QUOTES
-" class="form-control" name="quotes" id="" cols="5" rows="5"></textarea>
+                            <textarea placeholder="HAPPY CUSTOMER QUOTES" class="form-control" name="quotes" id="" cols="5" rows="5"></textarea>
                         </div>
 
 
 
                         <div class="mb-3">
-                            <input class="form-control" type="text" name="name" placeholder="Select City">
+                            <input class="form-control" type="text" name="name" placeholder="Name">
 
                         </div>
                         <div class="mb-3">
-                            <input class="form-control" type="text" name="introduction" placeholder="Address">
+                            <input class="form-control" type="text" name="introduction" placeholder="Name Of Depertment">
 
                         </div>
 
 
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Add Contact</button>
+                            <input class="form-control" type="file" name="img" placeholder="Address">
+
+                        </div>
+
+
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary">Add</button>
                         </div>
                     </form>
                 </div>

@@ -55,12 +55,15 @@ if($after_assoc['exist'] == 1){
     header('location:register.php');
 }
 else{
+
+    
     $after_explode = explode('.', $uploaded_file['name']);
     $extension = end($after_explode);
 
     $allowed_extension = array('jpg','png','gif', 'jpeg');
     if(in_array($extension, $allowed_extension)){
         if($uploaded_file['size'] <= 512000){
+
             $insert = "INSERT INTO users(name, email, password)VALUES('$name', '$email', '$after_hash')";
             mysqli_query($db_connection, $insert);
             $user_id = mysqli_insert_id($db_connection);
@@ -74,6 +77,7 @@ else{
 
             $_SESSION['success'] = 'Registered Successfully!';
             header('location:register.php');
+
         }
         else{
             $_SESSION['extension'] = 'file size too large! maximum 512 KB';

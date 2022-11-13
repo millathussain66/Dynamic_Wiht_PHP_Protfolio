@@ -67,6 +67,7 @@ $testimonial_select = mysqli_query($db_connection, $testimonial);
 
 
 
+
 // Copyright Text 
 
 $select_copy = "SELECT * FROM copy_right  LIMIT 1";
@@ -418,7 +419,7 @@ $after_assoc_copy_text = mysqli_fetch_assoc($select_copy_text);
 
                                 <div class="single-testimonial text-center">
                                     <div class="testi-avatar">
-                                        <img src="img/images/testi_avatar.png" alt="img">
+                                        <img width="60" src="./uploads/testimonial/<?= $item['img'] ?>" alt="img">
                                     </div>
                                     <div class="testi-content">
                                         <h4><span>“</span> <?= $item['quotes'] ?> <span>”</span></h4>
