@@ -66,6 +66,13 @@ $testimonial_select = mysqli_query($db_connection, $testimonial);
 // testimonial Section
 
 
+// Success Sections 
+
+
+
+$section_success = "SELECT * FROM success WHERE status=1 ";
+$query_success = mysqli_query($db_connection,$section_success);
+
 
 
 // Copyright Text 
@@ -113,6 +120,7 @@ $after_assoc_copy_text = mysqli_fetch_assoc($select_copy_text);
         <link rel="stylesheet" href="css/default.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body class="theme-bg">
 
@@ -350,50 +358,25 @@ $after_assoc_copy_text = mysqli_fetch_assoc($select_copy_text);
                 <div class="container">
                     <div class="fact-wrap">
                         <div class="row justify-content-between">
+
+
+                        <?php foreach($query_success  as $success_item){ ?>
+
+
                             <div class="col-xl-2 col-lg-3 col-sm-6">
                                 <div class="fact-box text-center mb-50">
                                     <div class="fact-icon">
-                                        <i class="flaticon-award"></i>
+                                        <i style="font-family: fontawesome;font-size:60px;margin-right:5px;font-style:none" class="fa <?=$success_item['damy_text']?>"></i>
                                     </div>
                                     <div class="fact-content">
-                                        <h2><span class="count">245</span></h2>
-                                        <span>Feature Item</span>
+                                        <h2><span class="count"> <?= $success_item['count']  ?> </span></h2>
+                                        <span> <?= $success_item['title']  ?></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-2 col-lg-3 col-sm-6">
-                                <div class="fact-box text-center mb-50">
-                                    <div class="fact-icon">
-                                        <i class="flaticon-like"></i>
-                                    </div>
-                                    <div class="fact-content">
-                                        <h2><span class="count">345</span></h2>
-                                        <span>Active Products</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-2 col-lg-3 col-sm-6">
-                                <div class="fact-box text-center mb-50">
-                                    <div class="fact-icon">
-                                        <i class="flaticon-event"></i>
-                                    </div>
-                                    <div class="fact-content">
-                                        <h2><span class="count">39</span></h2>
-                                        <span>Year Experience</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-2 col-lg-3 col-sm-6">
-                                <div class="fact-box text-center mb-50">
-                                    <div class="fact-icon">
-                                        <i class="flaticon-woman"></i>
-                                    </div>
-                                    <div class="fact-content">
-                                        <h2><span class="count">3</span>k</h2>
-                                        <span>Our Clients</span>
-                                    </div>
-                                </div>
-                            </div>
+
+                            <?php } ?>
+
                         </div>
                     </div>
                 </div>

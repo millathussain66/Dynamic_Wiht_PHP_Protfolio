@@ -244,6 +244,12 @@
 
 
 
+                    <li><a class="has-arrow ai-icon" href="/portfolio_with_row_php/admin/success_section/success.php" aria-expanded="false">
+							<span class="nav-text"> Success Text </span>
+						</a>
+                    </li>
+
+
                     <li><a class="has-arrow ai-icon" href="/portfolio_with_row_php/admin/copy_right/copy_right.php" aria-expanded="false">
 							<span class="nav-text"> copy_right </span>
 						</a>
